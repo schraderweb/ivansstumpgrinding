@@ -1,16 +1,109 @@
 ---
 ---
-<form class="flex flex-col sm:flex-row gap-3 w-full max-w-lg mx-auto animate-fade-up" style="animation-delay: 0.3s;">
-  <input 
-    type="email" 
-    placeholder="Enter your email" 
-    required
-    class="flex-1 bg-[var(--color-charcoal)] border border-white/10 text-white rounded-lg px-5 py-3 md:py-4 focus:outline-none focus:border-[var(--color-gold)] transition-colors placeholder-[var(--color-gray)] shadow-inner"
-  />
-  <button 
-    type="submit" 
-    class="bg-[var(--color-gold)] text-[#111111] font-bold uppercase tracking-wider px-8 py-3 md:py-4 rounded-lg hover:bg-[var(--color-amber)] transition-all hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(242,169,0,0.25)] hover:shadow-[0_6px_20px_rgba(242,169,0,0.4)]"
-  >
-    Notify Me
-  </button>
+
+<form class="notify-form" data-notify-form>
+  <label class="sr-only" for="notify-email">Email address</label>
+  <input id="notify-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
+  <button type="submit">Notify Me</button>
+  <p class="notify-status" data-notify-status aria-live="polite"></p>
 </form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-notify-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = form.querySelector<HTMLInputElement>('input[type="email"]');
+      const status = form.querySelector<HTMLElement>('[data-notify-status]');
+
+      if (!email?.checkValidity() || !status) return;
+
+      status.textContent = "You're on the list. We'll be in touch soon.";
+      email.value = '';
+    });
+  });
+</script>
+
+<style>
+  .notify-form {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .notify-form input {
+    width: 100%;
+    min-width: 0;
+    min-height: 3.6rem;
+    padding: 0 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0.4rem 0 0 0.4rem;
+    outline: 0;
+    background: rgba(17, 17, 17, 0.72);
+    color: var(--color-white);
+    font-size: 0.95rem;
+  }
+
+  .notify-form input::placeholder {
+    color: rgba(245, 245, 245, 0.58);
+  }
+
+  .notify-form input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 2px rgba(242, 169, 0, 0.15);
+  }
+
+  .notify-form button {
+    flex: none;
+    min-width: 10rem;
+    min-height: 3.6rem;
+    padding-inline: 1.35rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 0 0.4rem 0.4rem 0;
+    background: var(--color-gold);
+    color: #111;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .notify-form button:hover,
+  .notify-form button:focus-visible {
+    background: var(--color-amber);
+    transform: translateY(-1px);
+  }
+
+  .notify-status {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    margin: 0;
+    color: var(--color-gold);
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 47.999rem) {
+    .notify-form {
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .notify-status {
+      position: static;
+      margin-top: 0.1rem;
+    }
+
+    .notify-form input,
+    .notify-form button {
+      min-height: 3.2rem;
+      border-radius: 0.4rem;
+    }
+
+    .notify-form button {
+      width: 100%;
+    }
+  }
+</style>

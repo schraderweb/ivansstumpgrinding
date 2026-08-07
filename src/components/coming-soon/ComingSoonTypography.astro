@@ -1,15 +1,88 @@
 ---
 import BrandDivider from './BrandDivider.astro';
 ---
-<div class="flex flex-col items-center justify-center text-center animate-fade-down" style="animation-delay: 0.1s;">
-  <BrandDivider />
-  
-  <h1 class="font-bebas uppercase leading-[0.9] tracking-[2px] mt-6 md:mt-8 mb-4 md:mb-6 drop-shadow-[0_6px_25px_rgba(0,0,0,0.45)] text-grunge-mask flex flex-col md:flex-row gap-0 md:gap-5" style="font-size: clamp(90px, 12vw, 180px);">
-    <span class="bg-clip-text text-transparent bg-gradient-to-b from-[#FFFFFF] via-[#F1F1F1] to-[#D5D5D5]">COMING</span>
-    <span class="bg-clip-text text-transparent bg-gradient-to-b from-[#FFCA45] via-[#F2A900] to-[#C98300]">SOON</span>
+
+<div class="coming-soon-type">
+  <BrandDivider label="Our new website is" />
+
+  <h1>
+    <span>Coming</span>
+    <span>Soon</span>
   </h1>
-  
-  <h2 class="text-[var(--color-white)] text-sm md:text-lg lg:text-2xl uppercase tracking-[0.3em] md:tracking-[0.45em] font-medium mb-8 md:mb-10 max-w-3xl drop-shadow-md">
-    Our new website is under construction.
-  </h2>
+
+  <BrandDivider icon />
+
+  <p>We're putting the finishing touches on our new site.<br class="desktop-break" /> Stay tuned for something awesome!</p>
 </div>
+
+<style>
+  .coming-soon-type {
+    max-width: 58rem;
+    animation: copy-rise 700ms ease-out both;
+  }
+
+  .coming-soon-type h1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 clamp(0.8rem, 2vw, 1.65rem);
+    margin: clamp(1.25rem, 2vw, 2rem) 0 clamp(1rem, 2vw, 1.6rem);
+    color: var(--color-white);
+    font-family: var(--font-bebas);
+    font-size: clamp(5rem, 11.7vw, 11rem);
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    line-height: 0.82;
+    text-transform: uppercase;
+    text-shadow: 0 0.3rem 1.4rem rgba(0, 0, 0, 0.48);
+  }
+
+  .coming-soon-type h1 span:first-child {
+    background: linear-gradient(180deg, #fff 0%, #f0f0f0 55%, #c8c8c8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .coming-soon-type h1 span:last-child {
+    background: linear-gradient(180deg, #ffca45 0%, #f2a900 55%, #c98300 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .coming-soon-type p {
+    margin: clamp(1rem, 2vw, 1.5rem) 0 0;
+    color: rgba(245, 245, 245, 0.9);
+    font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+    line-height: 1.55;
+    text-shadow: 0 0.15rem 0.75rem rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes copy-rise {
+    from { opacity: 0; transform: translateY(1.25rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 47.999rem) {
+    .coming-soon-type {
+      text-align: center;
+    }
+
+    .coming-soon-type h1 {
+      justify-content: center;
+      font-size: clamp(5.4rem, 23vw, 8.5rem);
+      line-height: 0.78;
+    }
+
+    .desktop-break {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .coming-soon-type {
+      animation: none;
+    }
+  }
+</style>

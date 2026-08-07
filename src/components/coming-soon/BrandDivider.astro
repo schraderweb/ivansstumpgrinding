@@ -1,11 +1,68 @@
 ---
+interface Props {
+  label?: string;
+  icon?: boolean;
+}
+
+const { label, icon = false } = Astro.props;
 ---
-<div class="flex items-center justify-center gap-4 w-full opacity-60">
-  <div class="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent to-[var(--color-gold)]"></div>
-  <svg class="w-5 h-5 text-[var(--color-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <!-- simple gear/cog icon to fit industrial theme -->
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-  </svg>
-  <div class="h-[1px] w-12 md:w-24 bg-gradient-to-l from-transparent to-[var(--color-gold)]"></div>
+
+<div class:list={['brand-divider', { 'brand-divider--label': label, 'brand-divider--icon': icon }]}>
+  <span class="divider-line divider-line--left"></span>
+  {label && <span class="divider-label">{label}</span>}
+  {icon && (
+    <svg aria-hidden="true" class="divider-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 23h16M10 23v-5m12 5v-5M12 18h8l-1.4-7h-5.2L12 18Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M9 11h14M13 8h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+    </svg>
+  )}
+  <span class="divider-line divider-line--right"></span>
 </div>
+
+<style>
+  .brand-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 1.8vw, 1.4rem);
+    width: min(100%, 31rem);
+    color: var(--color-gold);
+  }
+
+  .divider-line {
+    display: block;
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--color-gold));
+    opacity: 0.75;
+  }
+
+  .divider-line--right {
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+  }
+
+  .divider-label {
+    color: var(--color-white);
+    font-size: clamp(0.7rem, 1.5vw, 1.15rem);
+    font-weight: 600;
+    letter-spacing: clamp(0.25em, 0.65vw, 0.5em);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .divider-icon {
+    width: clamp(1.8rem, 3vw, 2.35rem);
+    height: clamp(1.8rem, 3vw, 2.35rem);
+    flex: none;
+  }
+
+  .brand-divider--icon {
+    width: min(100%, 33rem);
+  }
+
+  @media (max-width: 47.999rem) {
+    .divider-label {
+      letter-spacing: 0.27em;
+    }
+  }
+</style>

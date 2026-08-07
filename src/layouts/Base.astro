@@ -10,7 +10,7 @@ interface Props {
 const {
   title = "Ivan's Stump Grinding",
   description = 'Professional stump grinding and tree services.',
-  image = '/images/hero-section.png',
+  image = '/images/hero-coming-soon.png',
 } = Astro.props;
 
 const pageTitle = title === "Ivan's Stump Grinding" ? title : `${title} | Ivan's Stump Grinding`;
@@ -32,8 +32,8 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl.href} />
-		<meta property="og:image:width" content="1536" />
-		<meta property="og:image:height" content="1024" />
+		<meta property="og:image:width" content="1717" />
+		<meta property="og:image:height" content="916" />
 		<meta property="og:image:type" content="image/png" />
 		<meta property="og:url" content={pageUrl.href} />
 		<meta property="og:type" content="website" />

@@ -1,27 +1,41 @@
 ---
 ---
-<div class="absolute inset-0 z-0 overflow-hidden bg-[var(--color-rich-black)] pointer-events-none">
-  <!-- Hero Image -->
-  <img 
-    src="/images/hero-coming-soon.png" 
-    alt="Stump Grinder in action" 
-    class="absolute inset-0 w-full h-full object-cover object-[center_35%] opacity-85 scale-105 animate-[kenburns_20s_ease-out_forwards]"
-  />
-  
-  <!-- Cinematic Golden Hour Bloom/Lighting -->
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,191,60,0.15)_0%,transparent_60%)] mix-blend-screen"></div>
 
-  <!-- Film grain/Noise -->
-  <div class="absolute inset-0 bg-noise mix-blend-overlay opacity-30"></div>
-  
-  <!-- Dark Gradient Overlay (Vignette & Readability) -->
-  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-rich-black)] via-[rgba(11,11,11,0.6)] to-[rgba(11,11,11,0.2)]"></div>
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(11,11,11,0.8)_100%)]"></div>
+<div class="absolute inset-0 z-0 overflow-hidden bg-[var(--color-rich-black)] pointer-events-none">
+  <img
+    src="/images/hero-coming-soon.png"
+    alt="Stump grinder working in a backyard"
+    class="hero-image absolute inset-0 h-full w-full object-cover"
+  />
+
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_72%_34%,rgba(242,169,0,0.16),transparent_42%)] mix-blend-screen"></div>
+  <div class="absolute inset-0 bg-noise mix-blend-overlay opacity-25"></div>
+  <div class="hero-overlay absolute inset-0"></div>
 </div>
 
 <style>
-  @keyframes kenburns {
-    0% { transform: scale(1.05); }
-    100% { transform: scale(1.1); }
+  .hero-image {
+    object-position: center center;
+    filter: saturate(0.9) contrast(1.08) brightness(0.78);
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(4, 4, 4, 0.94) 0%, rgba(5, 5, 5, 0.84) 24%, rgba(5, 5, 5, 0.34) 57%, rgba(5, 5, 5, 0.18) 100%),
+      linear-gradient(0deg, rgba(4, 4, 4, 0.93) 0%, rgba(4, 4, 4, 0.18) 44%, rgba(4, 4, 4, 0.42) 100%),
+      radial-gradient(circle at 50% 45%, transparent 18%, rgba(0, 0, 0, 0.42) 100%);
+  }
+
+  @media (max-width: 47.999rem) {
+    .hero-image {
+      object-position: 68% center;
+      filter: saturate(0.88) contrast(1.06) brightness(0.62);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(180deg, rgba(4, 4, 4, 0.8) 0%, rgba(4, 4, 4, 0.62) 45%, rgba(4, 4, 4, 0.92) 100%),
+        linear-gradient(90deg, rgba(4, 4, 4, 0.55), rgba(4, 4, 4, 0.08));
+    }
   }
 </style>
