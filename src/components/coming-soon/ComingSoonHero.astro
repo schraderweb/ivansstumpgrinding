@@ -179,7 +179,9 @@ import FeatureHighlights from './FeatureHighlights.astro';
     padding: 0.75rem 1.15rem;
     border: 1px solid var(--color-gold);
     border-radius: 0.55rem;
-    color: var(--color-gold);
+    background: rgba(17, 17, 17, 0.72);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     font-size: clamp(0.8rem, 1.1vw, 1rem);
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -190,6 +192,7 @@ import FeatureHighlights from './FeatureHighlights.astro';
   .header-phone svg {
     width: 1.15rem;
     height: 1.15rem;
+    color: var(--color-gold);
   }
 
   .header-phone:hover,
@@ -197,6 +200,11 @@ import FeatureHighlights from './FeatureHighlights.astro';
     background: var(--color-gold);
     color: #111;
     transform: translateY(-2px);
+  }
+
+  .header-phone:hover svg,
+  .header-phone:focus-visible svg {
+    color: #111;
   }
 
   .hero-content {
