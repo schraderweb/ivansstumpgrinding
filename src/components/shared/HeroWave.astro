@@ -1,0 +1,88 @@
+---
+interface Props {
+  fill?: 'light' | 'dark' | 'primary';
+  class?: string;
+}
+
+const {
+  fill = 'light',
+  class: className = '',
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'hero-wave-stack',
+    fill !== 'light' ? `fill-${fill}` : '',
+    className,
+  ]}
+>
+  <div class="hero-wave-1">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+  </div>
+  <div class="hero-wave-2">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+  </div>
+  <div class="hero-wave-3">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .hero-wave-stack {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    line-height: 0;
+    z-index: 3;
+  }
+
+  .hero-wave-1,
+  .hero-wave-2,
+  .hero-wave-3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .hero-wave-1 { z-index: 3; }
+  .hero-wave-2 { z-index: 2; }
+  .hero-wave-3 { z-index: 1; }
+
+  .hero-wave-1 svg {
+    position: relative;
+    display: block;
+    width: calc(148% + 1.3px);
+    height: max(20px, min(3.5vw, 47px));
+  }
+
+  .hero-wave-2 svg {
+    position: relative;
+    display: block;
+    width: calc(145% + 1.3px);
+    height: max(30px, min(5.5vw, 75px));
+  }
+
+  .hero-wave-3 svg {
+    position: relative;
+    display: block;
+    width: calc(132% + 1.3px);
+    height: max(45px, min(11vw, 164px));
+  }
+
+  .shape-fill { fill: var(--color-light-gray); }
+  .fill-dark .shape-fill { fill: var(--color-dark-forest); }
+  .fill-primary .shape-fill { fill: var(--color-primary); }
+</style>

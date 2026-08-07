@@ -1,0 +1,37 @@
+---
+import HeroBackground from './HeroBackground.astro';
+import HeroContent from './HeroContent.astro';
+import HeroWave from '../shared/HeroWave.astro';
+---
+
+<section class="hero-section relative w-full flex flex-col justify-center overflow-hidden bg-[var(--color-dark-forest)]">
+  <HeroBackground />
+  
+  <div class="site-container hero-container relative z-10 flex-grow flex items-center">
+    <div class="hero-layout w-full">
+      <HeroContent />
+    </div>
+  </div>
+
+  <HeroWave fill="light" />
+</section>
+
+<style>
+  .hero-section {
+    min-block-size: max(36rem, 80svh);
+  }
+
+  .hero-container {
+    min-block-size: calc(max(36rem, 80svh) - var(--site-header-h));
+    padding-block-start: clamp(1.5rem, 3vw, 2.5rem);
+    padding-block-end: clamp(6rem, 12vw, 10rem);
+  }
+
+  .hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+</style>

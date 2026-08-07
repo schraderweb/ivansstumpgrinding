@@ -1,0 +1,90 @@
+---
+---
+
+<div class="hero-copy flex flex-col items-center text-center relative z-10 w-full">
+  <img src="/Logo.png" alt="Ivan's Stump Grinding" class="h-[clamp(5rem,10vw,8rem)] w-auto object-contain mb-5 drop-shadow-lg" />
+
+  <p class="hero-eyebrow flex items-center gap-3 text-[var(--color-accent)] font-extrabold uppercase tracking-[0.12em] mb-5">
+    <span aria-hidden="true"></span>
+    Professional Stump Grinding
+  </p>
+
+  <h1 class="text-[clamp(2.5rem,5.5vw,4rem)] font-[800] text-white leading-[1.05] tracking-[-0.03em] mb-6 uppercase">
+    <span>Ivan's</span>
+    <span>Stump</span>
+    <span class="text-[var(--color-primary)]">Grinding</span>
+  </h1>
+
+  <div class="coming-soon-badge inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-extrabold uppercase tracking-[0.15em] text-[clamp(0.875rem,1.2vw,1.05rem)] mb-6">
+    Coming Soon
+  </div>
+  
+  <p class="hero-description text-base md:text-[1.125rem] font-medium text-white/80 leading-[1.65] mb-10 max-w-[36rem]">
+    We're getting ready to serve you with top-quality stump grinding and tree care services.
+    Quality work you can count on — launching soon.
+  </p>
+
+  <div class="flex flex-col sm:flex-row items-center gap-4 mb-10">
+    <a href="tel:2313429505" class="hero-cta flex items-center gap-3 px-8 py-4 bg-[var(--color-accent)] text-white font-extrabold rounded-lg text-[clamp(1rem,1.3vw,1.15rem)] tracking-[0.02em] hover:bg-[var(--color-primary)] transition-colors shadow-lg no-underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call for a Quote
+    </a>
+  </div>
+
+  <div class="trust-badges flex flex-wrap items-center justify-center gap-6 text-white/70 text-sm font-medium">
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent)]"><circle cx="12" cy="8" r="5"/><path d="M20 21v-2a7 7 0 0 0-14 0v2"/></svg>
+      Licensed & Insured
+    </div>
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent)]"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Quality Guaranteed
+    </div>
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent)]"><polyline points="20 6 9 17 4 12"/></svg>
+      Free Estimates
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-copy {
+    max-inline-size: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  }
+
+  .hero-eyebrow span {
+    display: block;
+    inline-size: clamp(1.5rem, 3vw, 2rem);
+    block-size: 0.1875rem;
+    background: var(--color-accent);
+  }
+
+  .hero-copy h1 span {
+    display: block;
+  }
+
+  .hero-description {
+    max-inline-size: min(100%, 36rem);
+  }
+
+  .hero-cta {
+    box-shadow: 0 4px 20px rgba(232, 117, 22, 0.4);
+  }
+
+  .hero-cta:hover {
+    box-shadow: 0 6px 25px rgba(59, 130, 62, 0.5);
+  }
+
+  .coming-soon-badge {
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(232, 117, 22, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(232, 117, 22, 0); }
+  }
+</style>
