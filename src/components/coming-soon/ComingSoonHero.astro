@@ -338,6 +338,27 @@ import FeatureHighlights from './FeatureHighlights.astro';
     to { transform: translate3d(-50%, 0, 0); }
   }
 
+  @media (min-width: 120rem) and (min-height: 60rem) {
+    .coming-soon-hero {
+      display: flex;
+      min-height: 100svh;
+      flex-direction: column;
+    }
+
+    .site-header,
+    .hero-content {
+      width: calc(100% - clamp(4rem, 5vw, 8rem));
+      max-width: none;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-height: 0;
+      align-items: flex-start;
+      padding-block: clamp(4rem, 10vh, 9rem) clamp(3rem, 6vh, 5rem);
+    }
+  }
+
   @media (max-width: 47.999rem) {
     .coming-soon-hero {
       display: flex;
