@@ -203,7 +203,7 @@ import FeatureHighlights from './FeatureHighlights.astro';
   .site-footer {
     width: 100%;
     color: var(--color-gray);
-    font-size: 0.75rem;
+    font-size: clamp(0.78rem, 1vw, 0.9rem);
   }
 
   .footer-marquee {
@@ -259,7 +259,7 @@ import FeatureHighlights from './FeatureHighlights.astro';
     justify-content: space-between;
     gap: 1.5rem;
     width: min(100% - 3rem, 94rem);
-    min-height: 5.25rem;
+    padding-block: clamp(1rem, 1.5vw, 1.5rem);
     margin-inline: auto;
   }
 
@@ -272,6 +272,11 @@ import FeatureHighlights from './FeatureHighlights.astro';
     flex-wrap: wrap;
     gap: 0.35rem 1rem;
     line-height: 1.5;
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+  }
+
+  .footer-copyright-copy a {
+    font-weight: 700;
   }
 
   .footer-copyright-copy a,
@@ -300,6 +305,7 @@ import FeatureHighlights from './FeatureHighlights.astro';
     align-items: center;
     gap: 1rem;
     white-space: nowrap;
+    font-size: 0.85em;
   }
 
   .footer-socials {
@@ -308,6 +314,7 @@ import FeatureHighlights from './FeatureHighlights.astro';
     gap: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
+    font-size: 0.85em;
   }
 
   .social-icon {
@@ -399,7 +406,7 @@ import FeatureHighlights from './FeatureHighlights.astro';
       width: min(100% - 2rem, 94rem);
       flex-direction: column;
       justify-content: center;
-      padding-block: 1.35rem;
+      padding-block: 1rem;
       text-align: center;
     }
 
