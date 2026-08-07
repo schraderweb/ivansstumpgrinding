@@ -1,0 +1,27 @@
+---
+---
+<div class="absolute inset-0 z-0 overflow-hidden bg-[var(--color-rich-black)] pointer-events-none">
+  <!-- Hero Image -->
+  <img 
+    src="/images/hero-coming-soon.png" 
+    alt="Stump Grinder in action" 
+    class="absolute inset-0 w-full h-full object-cover object-[center_35%] opacity-85 scale-105 animate-[kenburns_20s_ease-out_forwards]"
+  />
+  
+  <!-- Cinematic Golden Hour Bloom/Lighting -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,191,60,0.15)_0%,transparent_60%)] mix-blend-screen"></div>
+
+  <!-- Film grain/Noise -->
+  <div class="absolute inset-0 bg-noise mix-blend-overlay opacity-30"></div>
+  
+  <!-- Dark Gradient Overlay (Vignette & Readability) -->
+  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-rich-black)] via-[rgba(11,11,11,0.6)] to-[rgba(11,11,11,0.2)]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(11,11,11,0.8)_100%)]"></div>
+</div>
+
+<style>
+  @keyframes kenburns {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.1); }
+  }
+</style>

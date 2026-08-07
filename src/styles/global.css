@@ -1,13 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #3B823E;
-  --color-dark-forest: #0F2417;
-  --color-secondary-forest: #1A3A24;
-  --color-accent: #E87516;
-  --color-light-gray: #F7F9FC;
-  --color-border-glass: rgba(255, 255, 255, 0.12);
-  --color-text-secondary: rgba(255, 255, 255, 0.75);
+  --color-rich-black: #0B0B0B;
+  --color-graphite: #161616;
+  --color-charcoal: #222222;
+  --color-gold: #F2A900;
+  --color-amber: #FFBF3C;
+  --color-white: #F5F5F5;
+  --color-gray: #A0A0A0;
+  --color-border-dark: #333333;
+  --color-forest: #3F5D3A;
+
+  /* Legacy mappings to prevent breaking existing components during transition */
+  --color-primary: var(--color-gold);
+  --color-dark-forest: var(--color-rich-black);
+  --color-secondary-forest: var(--color-graphite);
+  --color-accent: var(--color-amber);
+  --color-light-gray: #111111;
+  --color-border-glass: rgba(255, 255, 255, 0.06);
+  --color-text-secondary: var(--color-gray);
 
   --navbar-h: clamp(3.5rem, calc(2.75rem + 2.5vw), 5rem);
   --navbar-h-scrolled: clamp(3.25rem, calc(2.5rem + 2.5vw), 4.5rem);
@@ -18,6 +29,7 @@
 
   --shadow-premium: 0 25px 80px rgba(0, 0, 0, 0.35);
 
+  --font-bebas: 'Bebas Neue', sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 
   --animate-fade-down: fade-down 0.8s ease-out forwards;
@@ -71,7 +83,7 @@
   }
 
   body {
-    @apply font-sans bg-light-gray text-dark-forest antialiased;
+    @apply font-sans bg-[var(--color-rich-black)] text-[var(--color-white)] antialiased;
     margin: 0;
     overflow-x: clip;
   }
@@ -104,5 +116,14 @@
 
   .section-space-compact {
     padding-block: var(--section-space-compact);
+  }
+  
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+  
+  .text-grunge-mask {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.8'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.8'/%3E%3C/svg%3E");
   }
 }
