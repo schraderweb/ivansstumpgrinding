@@ -98,6 +98,7 @@ import FeatureHighlights from './FeatureHighlights.astro';
 
   .brand-lockup {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     gap: clamp(0.75rem, 1.4vw, 1.15rem);
     color: var(--color-white);
@@ -114,8 +115,10 @@ import FeatureHighlights from './FeatureHighlights.astro';
   .brand-copy {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.25rem;
     text-transform: uppercase;
+    text-align: center;
   }
 
   .brand-name {
