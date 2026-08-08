@@ -41,31 +41,6 @@ import FeatureHighlights from './FeatureHighlights.astro';
   </InfoPanel>
 
   <footer class="site-footer">
-    <div class="footer-marquee" aria-hidden="true">
-      <div class="footer-marquee-track">
-        <div class="footer-marquee-group">
-          <span>IVAN'S</span>
-          <span class="footer-marquee-highlight">STUMP GRINDING CO.</span>
-          <span class="footer-marquee-separator">&middot;</span>
-        </div>
-        <div class="footer-marquee-group">
-          <span>IVAN'S</span>
-          <span class="footer-marquee-highlight">STUMP GRINDING CO.</span>
-          <span class="footer-marquee-separator">&middot;</span>
-        </div>
-        <div class="footer-marquee-group">
-          <span>IVAN'S</span>
-          <span class="footer-marquee-highlight">STUMP GRINDING CO.</span>
-          <span class="footer-marquee-separator">&middot;</span>
-        </div>
-        <div class="footer-marquee-group">
-          <span>IVAN'S</span>
-          <span class="footer-marquee-highlight">STUMP GRINDING CO.</span>
-          <span class="footer-marquee-separator">&middot;</span>
-        </div>
-      </div>
-    </div>
-
     <div class="footer-copyright">
       <div class="footer-copyright-inner">
         <p class="footer-copyright-copy">
@@ -130,8 +105,8 @@ import FeatureHighlights from './FeatureHighlights.astro';
   }
 
   .brand-mark {
-    width: clamp(4.5rem, 8vw, 6.75rem);
-    height: clamp(4.5rem, 8vw, 6.75rem);
+    width: clamp(6.5rem, 12vw, 11rem);
+    height: clamp(6.5rem, 12vw, 11rem);
     flex: none;
     border-radius: 50%;
     object-fit: cover;
@@ -221,48 +196,6 @@ import FeatureHighlights from './FeatureHighlights.astro';
     font-size: clamp(0.78rem, 1vw, 0.9rem);
   }
 
-  .footer-marquee {
-    width: 100%;
-    overflow: hidden;
-    border-block: 1px solid rgba(242, 169, 0, 0.7);
-    background: var(--color-gold);
-    color: #111;
-  }
-
-  .footer-marquee-track {
-    display: flex;
-    width: max-content;
-    animation: footer-marquee 28s linear infinite;
-    will-change: transform;
-  }
-
-  .footer-marquee-group {
-    display: flex;
-    align-items: center;
-    gap: clamp(1.25rem, 3vw, 3.5rem);
-    padding: clamp(0.8rem, 1.6vw, 1.35rem) clamp(1.5rem, 4vw, 4rem);
-    white-space: nowrap;
-  }
-
-  .footer-marquee-group > span {
-    font-family: var(--font-bebas);
-    font-size: clamp(2.8rem, 7vw, 7.2rem);
-    letter-spacing: 0.045em;
-    line-height: 0.78;
-  }
-
-  .footer-marquee-highlight {
-    color: #1a1a1a;
-    text-shadow: 0.06em 0.06em 0 rgba(255, 191, 60, 0.5);
-  }
-
-  .footer-marquee-separator {
-    color: rgba(17, 17, 17, 0.45);
-    font-family: var(--font-sans) !important;
-    font-size: clamp(1.8rem, 4vw, 4rem) !important;
-    line-height: 1 !important;
-  }
-
   .footer-copyright {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     background: #101010;
@@ -348,11 +281,6 @@ import FeatureHighlights from './FeatureHighlights.astro';
     height: 1rem;
   }
 
-  @keyframes footer-marquee {
-    from { transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(-50%, 0, 0); }
-  }
-
   @media (min-width: 120rem) and (min-height: 60rem) {
     .coming-soon-hero {
       display: flex;
@@ -409,8 +337,8 @@ import FeatureHighlights from './FeatureHighlights.astro';
     }
 
     .brand-mark {
-      width: 4.8rem;
-      height: 4.8rem;
+      width: 6.5rem;
+      height: 6.5rem;
     }
 
     .header-phone {
@@ -427,15 +355,6 @@ import FeatureHighlights from './FeatureHighlights.astro';
       min-height: 0;
       align-items: stretch;
       padding-block: clamp(2rem, 6vw, 3rem) clamp(3rem, 8vw, 4rem);
-    }
-
-    .footer-marquee-group {
-      gap: 1.25rem;
-      padding-inline: 1.25rem;
-    }
-
-    .footer-marquee-group > span {
-      font-size: clamp(2.7rem, 13vw, 5rem);
     }
 
     .footer-copyright-inner {
@@ -461,10 +380,6 @@ import FeatureHighlights from './FeatureHighlights.astro';
   @media (prefers-reduced-motion: reduce) {
     .header-phone {
       transition: none;
-    }
-
-    .footer-marquee-track {
-      animation: none;
     }
   }
 </style>
