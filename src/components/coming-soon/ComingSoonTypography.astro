@@ -17,7 +17,12 @@ import BrandDivider from './BrandDivider.astro';
 
 <style>
   .coming-soon-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     max-width: 58rem;
+    margin-inline: auto;
     animation: copy-rise 700ms ease-out both;
   }
 
@@ -25,6 +30,7 @@ import BrandDivider from './BrandDivider.astro';
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
+    justify-content: center;
     gap: 0 clamp(0.8rem, 2vw, 1.65rem);
     margin: clamp(1.25rem, 2vw, 2rem) 0 clamp(1rem, 2vw, 1.6rem);
     padding-top: 0.12em;
@@ -66,22 +72,10 @@ import BrandDivider from './BrandDivider.astro';
   }
 
   @media (max-width: 47.999rem) {
-    .coming-soon-type {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
     .coming-soon-type h1 {
-      justify-content: center;
       font-size: clamp(5.4rem, 23vw, 8.5rem);
       line-height: 0.84;
       padding-top: 0.15em;
-    }
-
-    .coming-soon-type p {
-      text-align: center;
     }
 
     .desktop-break {
