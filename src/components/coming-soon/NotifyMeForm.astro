@@ -10,15 +10,42 @@
 
 <script>
   document.querySelectorAll<HTMLFormElement>('[data-notify-form]').forEach((form) => {
-    form.addEventListener('submit', (event) => {
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const email = form.querySelector<HTMLInputElement>('input[type="email"]');
+    const status = form.querySelector<HTMLElement>('[data-notify-status]');
+    if (!button || !email || !status) return;
+
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const email = form.querySelector<HTMLInputElement>('input[type="email"]');
-      const status = form.querySelector<HTMLElement>('[data-notify-status]');
 
-      if (!email?.checkValidity() || !status) return;
+      if (!email.checkValidity()) return;
 
-      status.textContent = "You're on the list. We'll be in touch soon.";
-      email.value = '';
+      button.disabled = true;
+      status.textContent = '';
+      status.classList.remove('is-error');
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email.value }),
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          status.classList.add('is-error');
+          status.textContent = data.error ?? 'Something went wrong. Please try again.';
+          return;
+        }
+
+        status.textContent = data.message ?? "You're on the list. We'll be in touch soon.";
+        email.value = '';
+      } catch {
+        status.classList.add('is-error');
+        status.textContent = 'Something went wrong. Please try again.';
+      } finally {
+        button.disabled = false;
+      }
     });
   });
 </script>
@@ -83,6 +110,10 @@
     margin: 0;
     color: var(--color-gold);
     font-size: 0.78rem;
+  }
+
+  .notify-status.is-error {
+    color: #ff6b6b;
   }
 
   @media (max-width: 47.999rem) {
