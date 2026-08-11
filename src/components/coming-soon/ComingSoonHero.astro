@@ -335,11 +335,28 @@ import FeatureHighlights from './FeatureHighlights.astro';
     }
 
     .brand-copy {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      align-items: center;
+      text-align: center;
+    }
+
+    .brand-name {
+      font-size: clamp(1.35rem, 7vw, 1.9rem);
+    }
+
+    .brand-service {
+      font-size: clamp(0.55rem, 3vw, 0.7rem);
+    }
+
+    .brand-tagline {
       display: none;
     }
 
     .brand-mark {
-      width: 8.5rem;
+      width: 4.5rem;
       height: auto;
     }
 
